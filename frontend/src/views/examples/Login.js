@@ -29,17 +29,60 @@ import {
   InputGroupText,
   InputGroup,
   Row,
-  Col,
+  Col
 } from "reactstrap";
+
+import axios from "axios";
 
 const Login = () => {
   return (
     <>
       <Col lg="5" md="7">
         <Card className="bg-secondary shadow border-0">
+          <CardHeader className="bg-transparent pb-5">
+            <div className="text-muted text-center mt-2 mb-3">
+              <small>Sign in with</small>
+            </div>
+            <div className="btn-wrapper text-center">
+              <Button
+                className="btn-neutral btn-icon"
+                color="default"
+                href="#pablo"
+                onClick={(e) => e.preventDefault()}
+              >
+                <span className="btn-inner--icon">
+                  <img
+                    alt="..."
+                    src={
+                      require("../../assets/img/icons/common/github.svg")
+                        .default
+                    }
+                  />
+                </span>
+                <span className="btn-inner--text">Github</span>
+              </Button>
+              <Button
+                className="btn-neutral btn-icon"
+                color="default"
+                href="#pablo"
+                onClick={(e) => e.preventDefault()}
+              >
+                <span className="btn-inner--icon">
+                  <img
+                    alt="..."
+                    src={
+                      require("../../assets/img/icons/common/google.svg")
+                        .default
+                    }
+                  />
+                </span>
+                <span className="btn-inner--text">Google</span>
+              </Button>
+            </div>
+          </CardHeader>
           <CardBody className="px-lg-5 py-lg-5">
             <div className="text-center text-muted mb-4">
-              <small>Inicia Sesión introduciendo tus datos</small>
+              <small>Or sign in with credentials</small>
             </div>
             <Form role="form">
               <FormGroup className="mb-3">
@@ -64,7 +107,7 @@ const Login = () => {
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     type="password"
                     autoComplete="new-password"
                   />
@@ -80,12 +123,12 @@ const Login = () => {
                   className="custom-control-label"
                   htmlFor=" customCheckLogin"
                 >
-                  <span className="text-muted">Recordar datos</span>
+                  <span className="text-muted">Remember me</span>
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
-                  Inicar Sesión
+                <Button className="my-4" color="primary" type="button" onClick={() => Login()}>
+                  Sign in
                 </Button>
               </div>
             </Form>
@@ -98,7 +141,7 @@ const Login = () => {
               href="#pablo"
               onClick={(e) => e.preventDefault()}
             >
-              <small>¿Olvidaste tu Contraseña?</small>
+              <small>Forgot password?</small>
             </a>
           </Col>
           <Col className="text-right" xs="6">
@@ -107,13 +150,21 @@ const Login = () => {
               href="#pablo"
               onClick={(e) => e.preventDefault()}
             >
-              <small>Registrarse</small>
+              <small>Create new account</small>
             </a>
           </Col>
         </Row>
       </Col>
     </>
   );
+
+  function Login(){
+    var url = "http://localhost:3000/api/auth/login"
+    axios.get(url, { 
+    }).then(response => {
+    })
+}
+
 };
 
 export default Login;
