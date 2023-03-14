@@ -10,6 +10,8 @@ cd Dockerfiles
 mkdir Servidor
 mkdir Web
 
+cd Servidor 
+echo "
 
 
 #Actualizamos las imagenes del servidor y del frontend Web
