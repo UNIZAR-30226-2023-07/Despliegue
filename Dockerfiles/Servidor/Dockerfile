@@ -1,7 +1,0 @@
-FROM ubuntu:18.04
-
-COPY conexion-gin /usr/local/bin/conexion-gin
-
-ENTRYPOINT /usr/local/bin/conexion-gin
-
-EXPOSE 3001
