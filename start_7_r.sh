@@ -3,6 +3,7 @@
 rm -rf Backend 
 rm -rf Frontend-web 
 rm init.sql 
+docker rm $(docker ls -aq)
 
 #Clonamos repositorios del proyecto 
 git clone https://github.com/UNIZAR-30226-2023-07/Backend
