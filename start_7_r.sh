@@ -5,8 +5,13 @@
 cd ./Dockerfiles/Servidor
 docker build . -t api_7_r:latest
 
-cd ./Dockerfiles/Web 
+cd ..
+
+cd ./Web
 docker build . -t web_7_r:latest
+
+cd ..
+cd ..
 
 #Iniciamos el despliegue
 docker compose up
