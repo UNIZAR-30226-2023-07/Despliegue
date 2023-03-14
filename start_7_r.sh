@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Clonamos repositorios del proyecto 
-git clone https://github.com/UNIZAR
+git clone https://github.com/UNIZAR-30226-2023-
 
 
 #Creamos estructura del directorio 
