@@ -11,8 +11,17 @@ mkdir Servidor
 mkdir Web
 
 cd Servidor 
-echo "
+echo "FROM ubuntu:18.04 
+  
+ COPY conexion-gin /usr/local/bin/conexion-gin 
+  
+ ENTRYPOINT /usr/local/bin/conexion-gin 
+  
+ EXPOSE 3001" > Dockerfile
 
+cd ..
+cd Web 
+echo "
 
 #Actualizamos las imagenes del servidor y del frontend Web
 cd ./Dockerfiles/Servidor
