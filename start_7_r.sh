@@ -4,7 +4,8 @@
 git clone https://github.com/UNIZAR-30226-2023-07/Backend
 git clone https://github.com/UNIZAR-30226-2023-07/Frontend-Web
 
-#Creamos estructura del directorio 
+#Creamos despliegue de docker compose
+ 
 echo "version: "3.8" 
   
  services: 
@@ -47,12 +48,8 @@ echo "version: "3.8"
        - "3000:3000" 
      image: web_7_r" > docker-compose.yml
 
-mkdir Dockerfiles
-cd Dockerfiles
-mkdir Servidor
-mkdir Web
+cd ./Backend/Servidor 
 
-cd Servidor 
 echo "FROM ubuntu:18.04 
   
  COPY conexion-gin /usr/local/bin/conexion-gin 
@@ -61,8 +58,13 @@ echo "FROM ubuntu:18.04
   
  EXPOSE 3001" > Dockerfile
 
+CGO_ENABLE=0 go build conexion-gin.go
+
 cd ..
-cd Web 
+cd ..
+
+cd ./Frontend-web
+
 echo "FROM node:18-alpine 
   
  COPY package.json . 
@@ -79,6 +81,9 @@ cd ..
 cd ..
 
 #Copiamos ejecutables en contenedor
+
+CGO_ENABLE=0 go build ./Backend/Servidor/conexion-gin.go
+
 
 #Actualizamos las imagenes del servidor y del frontend Web
 cd ./Dockerfiles/Servidor
