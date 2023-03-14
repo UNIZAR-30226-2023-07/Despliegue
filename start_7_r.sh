@@ -1,8 +1,12 @@
 #!/bin/bash
+#Borramos contenido anterior si existe 
+rm -rf Backend 
+rm -rf Frontend-web 
+rm init.sql 
 
 #Clonamos repositorios del proyecto 
 git clone https://github.com/UNIZAR-30226-2023-07/Backend
-git clone https://github.com/UNIZAR-30226-2023-07/Frontend-Web
+git clone https://github.com/UNIZAR-30226-2023-07/Frontend-web
 
 #Creamos despliegue de docker compose
  
