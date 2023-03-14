@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#Clonamos repositorios del proyecto 
+git clone https://github.com/UNIZAR
+
+
+#Creamos estructura del directorio 
+mkdir Dockerfiles
+cd Dockerfiles
 
 #Actualizamos las imagenes del servidor y del frontend Web
 cd ./Dockerfiles/Servidor
