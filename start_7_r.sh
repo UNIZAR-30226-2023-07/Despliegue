@@ -2,12 +2,15 @@
 
 #Clonamos repositorios del proyecto 
 git clone https://github.com/UNIZAR-30226-2023-07/Backend
-git clone https://github.com/UNIZAR-30226-2023-07/Frontend
-
+git clone https://github.com/UNIZAR-30226-2023-07/Frontend-Web
 
 #Creamos estructura del directorio 
 mkdir Dockerfiles
 cd Dockerfiles
+mkdir Servidor
+mkdir Web
+
+
 
 #Actualizamos las imagenes del servidor y del frontend Web
 cd ./Dockerfiles/Servidor
