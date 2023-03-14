@@ -60,10 +60,12 @@ echo "FROM ubuntu:18.04
 
 CGO_ENABLE=0 go build conexion-gin.go
 
+docker build . -t api_7_r:latest
+
 cd ..
 cd ..
 
-cd ./Frontend-web
+cd ./Frontend-web/Frontend_Trabajo
 
 echo "FROM node:18-alpine 
   
@@ -77,25 +79,13 @@ echo "FROM node:18-alpine
   
  CMD ["npm", "start"]" > Dockerfile
 
-cd ..
-cd ..
-
-#Copiamos ejecutables en contenedor
-
-CGO_ENABLE=0 go build ./Backend/Servidor/conexion-gin.go
-
-
-#Actualizamos las imagenes del servidor y del frontend Web
-cd ./Dockerfiles/Servidor
-docker build . -t api_7_r:latest
-
-cd ..
-
-cd ./Web
 docker build . -t web_7_r:latest
 
 cd ..
 cd ..
+
+#Copiamos esquema de la BD
+cp ./Backend/Database/init.sql init.sql
 
 #Iniciamos el despliegue
 docker compose up
