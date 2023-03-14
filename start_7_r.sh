@@ -5,7 +5,48 @@ git clone https://github.com/UNIZAR-30226-2023-07/Backend
 git clone https://github.com/UNIZAR-30226-2023-07/Frontend-Web
 
 #Creamos estructura del directorio 
-echo "
+echo "version: "3.8" 
+  
+ services: 
+   api: 
+     container_name: api_7_r 
+     restart: always 
+     ports: 
+       - "3001:3001" 
+     image: api_7_r 
+      
+   postgres: 
+     container_name: postgres_7_r 
+     image: postgres 
+     restart: always 
+     ports: 
+       - "5432:5432" 
+     environment: 
+       - DATABASE_HOST=127.0.0.1 
+       - POSTGRES_USER=frances 
+       - POSTGRES_PASSWORD=1234 
+       - POSTGRES_DB=Pro_Soft 
+     volumes: 
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+        
+   pgadmin: 
+     container_name: pgadmin_7_r 
+     image: dpage/pgadmin4 
+     environment: 
+       PGADMIN_DEFAULT_EMAIL: "frances@allen.es" 
+       PGADMIN_DEFAULT_PASSWORD: "1234" 
+     ports: 
+       - "80:80" 
+     depends_on: 
+       - postgres  
+        
+   web: 
+     container_name: web_7_r 
+     restart: always 
+     ports: 
+       - "3000:3000" 
+     image: web_7_r" > docker-compose.yml
+
 mkdir Dockerfiles
 cd Dockerfiles
 mkdir Servidor
