@@ -1,1 +1,0 @@
-#!/bin/bash#Actualizamos las imagenes del servidor y del frontend Webdocker build ./Dockerfiles/Servidor -t api_7_r:latestdocker build ./Dockerfiles/Web -t web_7_r:latest#Iniciamos el desplieguedocker compose up

@@ -8,6 +8,13 @@ services:
       - "3001:3001"
     image: api_7_r
     
+  web:
+    container_name: web_7_r
+    restart: always
+    ports:
+      - "3000:3000"
+    image: web_7_r
+    
   postgres:
     container_name: postgres_7_r
     image: postgres
