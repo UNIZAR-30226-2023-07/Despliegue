@@ -27,3 +27,15 @@ services:
     ports:
       - "3000:3000"
     image: web_7_r
+    
+  pgadmin:
+    container_name: pgadmin_7_r
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "frances@allen.es"
+      PGADMIN_DEFAULT_PASSWORD: "1234"
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres 
+
