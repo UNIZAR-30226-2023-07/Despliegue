@@ -18,7 +18,9 @@ cd ./Backend/Servidor
 
 CGO_ENABLE=0 go build conexion-gin.go
 
-docker build . -t api_7_r:latest
+docker build . -t 815177/api_7_r:latest
+
+docker push 815177/api_7_r
 
 cd ..
 cd ..
@@ -26,7 +28,9 @@ cd ..
 #Creamos imagen del frontend web
 cd ./Frontend-web/Frontend_Trabajo
 
-docker build . -t web_7_r:latest
+docker build . -t 815177/web_7_r:latest
+
+docker push 815177/web_7_r
 
 cd ..
 cd ..
