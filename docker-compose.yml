@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - "3001:3001"
-    image: 815177/api_7_r
+    image: 815177/api_7_r:latest
     
   postgres:
     container_name: postgres_7_r
@@ -26,7 +26,7 @@ services:
     restart: always
     ports:
       - "3000:3000"
-    image: 815177/web_7_r
+    image: 815177/web_7_r:latest
     
   pgadmin:
     container_name: pgadmin_7_r
