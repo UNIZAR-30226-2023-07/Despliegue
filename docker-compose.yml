@@ -21,18 +21,6 @@ services:
       - POSTGRES_DB=Pro_Soft
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      
-  pgadmin:
-    container_name: pgadmin_7_r
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "frances@allen.es"
-      PGADMIN_DEFAULT_PASSWORD: "1234"
-    ports:
-      - "80:80"
-    depends_on:
-      - postgres 
-      
   web:
     container_name: web_7_r
     restart: always
