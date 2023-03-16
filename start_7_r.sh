@@ -55,7 +55,7 @@ read respuesta
 case $respuesta in
 	S* | s*)
 	#Iniciamos el despliegue
-	docker compose up
+	docker-compose up
 	;;
 	*)
 	echo "Chao pescao"
