@@ -1,7 +1,14 @@
-FROM ubuntu
+FROM golang:1.20
 
-COPY conexion-gin /usr/local/bin/conexion-gin
+WORKDIR /usr/src/app
 
-ENTRYPOINT /usr/local/bin/conexion-gin
+# pre-copy/cache go.mod for pre-downloading dependencies and only redownloading them in subsequent builds if they change
+COPY go.mod go.sum ./
+RUN go mod download && go mod verify
+
+COPY . .
+RUN go build -v -o /usr/local/bin/api conexion-gin.go
+
+CMD ["api"]
 
 EXPOSE 3001
