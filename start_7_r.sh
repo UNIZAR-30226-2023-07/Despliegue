@@ -1,9 +1,4 @@
 #!/bin/bash
-#Borramos contenido anterior si existe 
-rm init.sql &> /dev/null
-
-#Paramos todos los contenedores
-docker stop $(docker ps -q) &> /dev/null
 
 #Clonamos repositorios del proyecto 
 git clone https://github.com/UNIZAR-30226-2023-07/Backend
@@ -48,30 +43,53 @@ esac
 rm -rf Backend 
 rm -rf Frontend-web 
 
-echo -n "Desea desplegar el Servidor con docker compose? (Si/No): "
+echo -n "Desea desplegar todo el proyecto junto? (Si/No): "
 read respuesta
 case $respuesta in
 	S* | s*)
 	#Iniciamos el despliegue
+	cp docker-compose1.yml docker-compose.yml 
 	docker-compose up
 	if [ $? -ne 0 ] 
 	then
 		docker compose up
 	fi 
+	
+	rm docker-compose.yml &> /dev/null
+	
 	;;
 	*)
-	echo -n "Desplegar web? (Si/No): "
+	echo -n "Desea desplegar el Servidor? (Si/No): "
 	read respuesta
 	case $respuesta in
 		S* | s*)
-		docker start web_7_r
+		#Iniciamos el despliegue
+		cp docker-compose2.yml docker-compose.yml 
+		
+		docker-compose up
 		if [ $? -ne 0 ] 
 		then
-			docker run --name web_7_r -p 3000:3000 815177/web_7_r 
-		fi 	
+			docker compose up
+		fi 
+		
+		rm docker-compose.yml &> /dev/null
+	
 		;;
 		*)
-		echo "Chao pues"
+		echo -n "Desea desplegar web? (Si/No): "
+		read respuesta
+		case $respuesta in
+			S* | s*)
+			docker start web_7_r
+			if [ $? -ne 0 ] 
+			then
+				docker run --name web_7_r -p 3000:3000 815177/web_7_r 
+			fi 	
+			;;
+			*)
+			echo "Chao pues"
+		esac
 	esac
 esac
 
+rm init.sql &> /dev/null
