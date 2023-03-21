@@ -50,11 +50,6 @@ case $respuesta in
 	#Iniciamos el despliegue
 	cp docker-compose1.yml docker-compose.yml 
 	docker-compose up
-	if [ $? -ne 0 ] 
-	then
-		docker compose up
-	fi 
-	
 	rm docker-compose.yml &> /dev/null
 	
 	;;
@@ -65,13 +60,7 @@ case $respuesta in
 		S* | s*)
 		#Iniciamos el despliegue
 		cp docker-compose2.yml docker-compose.yml 
-		
 		docker-compose up
-		if [ $? -ne 0 ] 
-		then
-			docker compose up
-		fi 
-		
 		rm docker-compose.yml &> /dev/null
 	
 		;;
