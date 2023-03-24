@@ -69,11 +69,11 @@ case $respuesta in
 		read respuesta
 		case $respuesta in
 			S* | s*)
-			docker start web_7_r
-			if [ $? -ne 0 ] 
-			then
-				docker run --name web_7_r -p 3000:3000 815177/web_7_r 
-			fi 	
+			#Iniciamos el despliegue
+			cp docker-compose3.yml docker-compose.yml 
+			docker-compose up
+			rm docker-compose.yml &> /dev/null
+			
 			;;
 			*)
 			echo "Chao pues"
