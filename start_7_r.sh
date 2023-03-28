@@ -7,7 +7,7 @@ git clone https://github.com/UNIZAR-30226-2023-07/Frontend-web
 #Copiamos esquema de la BD
 cp ./Backend/Database/init.sql init.sql 
 
-echo -n "Desea actualizar los contendores (solo Adrian puede hacer esto)? (Si/No): "
+echo -n "Desea actualizar el contendor del servidor? (Si/No): "
 read respuesta
 case $respuesta in
 	S* | s*)
@@ -28,7 +28,7 @@ case $respuesta in
 	;;
 	*)
 
-	echo -n "Desea actualizar los contendores (solo Adrian puede hacer esto)? (Si/No): "
+	echo -n "Desea actualizar el contendor de la web? (Si/No): "
 	read respuesta
 	case $respuesta in
 	S* | s*)
@@ -48,6 +48,7 @@ case $respuesta in
 
 	esac
 esac
+
 #Borramos contenido
 rm -rf Backend 
 rm -rf Frontend-web 
