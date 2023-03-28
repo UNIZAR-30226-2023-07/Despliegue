@@ -25,6 +25,13 @@ case $respuesta in
 	cd ..
 	cd ..
 
+	;;
+	*)
+
+	echo -n "Desea actualizar los contendores (solo Adrian puede hacer esto)? (Si/No): "
+	read respuesta
+	case $respuesta in
+	S* | s*)
 	#Creamos imagen del frontend web
 	cd ./Frontend-web/Frontend_Trabajo
 
@@ -36,9 +43,11 @@ case $respuesta in
 	cd ..
 	;;
 	*)
-	echo "Ha decidido no actualizar los contenedores"
-esac
 
+	echo "Ha decidido no actualizar los contenedores"
+
+	esac
+esac
 #Borramos contenido
 rm -rf Backend 
 rm -rf Frontend-web 
