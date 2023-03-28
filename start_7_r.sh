@@ -7,14 +7,14 @@ git clone https://github.com/UNIZAR-30226-2023-07/Frontend-web
 #Copiamos esquema de la BD
 cp ./Backend/Database/init.sql init.sql 
 
+#Pasamos el Dockerfile
+cp Dockerfile_Servidor ./Backend/Servidor/Dockerfile
+cp Dockerfile_Web ./Frontend-web/Frontend_Trabajo/Dockerfile
+
 echo -n "Desea actualizar el contendor del servidor? (Si/No): "
 read respuesta
 case $respuesta in
 	S* | s*)
-	#Pasamos el Dockerfile
-	cp Dockerfile_Servidor ./Backend/Servidor/Dockerfile
-	cp Dockerfile_Web ./Frontend-web/Frontend_Trabajo/Dockerfile
-
 	#Compilamos el servidor y creamos imagen
 	cd ./Backend/Servidor 
 
