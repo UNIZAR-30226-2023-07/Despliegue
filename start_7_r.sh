@@ -27,8 +27,9 @@ case $respuesta in
 
 	;;
 	*)
+esac
 
-	echo -n "Desea actualizar el contendor de la web? (Si/No): "
+echo -n "Desea actualizar el contendor de la web? (Si/No): "
 	read respuesta
 	case $respuesta in
 	S* | s*)
@@ -43,10 +44,6 @@ case $respuesta in
 	cd ..
 	;;
 	*)
-
-	echo "Ha decidido no actualizar los contenedores"
-
-	esac
 esac
 
 #Borramos contenido
