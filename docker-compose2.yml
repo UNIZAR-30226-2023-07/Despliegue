@@ -19,6 +19,7 @@ services:
       - POSTGRES_USER=frances
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=Pro_Soft
+      - POSTGRES_HOST_AUTH_METHOD= trust
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
  
